@@ -1,0 +1,25 @@
+{
+"deploy": {
+    "steps": [
+        {
+            "apply": {
+                "file": "data/kubeblocks/kubeblocks_crds.yaml",
+                "namespace": null
+            }
+        },
+	{
+	    "wait": {
+	        "duration": 5
+	    }
+	},
+        {
+            "apply": {
+                "file": "data/kubeblocks/helm-template-no-test-connection-no-addons.yaml",
+		"operator": true
+            }
+        }
+   ]
+},
+"crd_name": "clusters.apps.kubeblocks.io",
+"seed_custom_resource": "data/kubeblocks/cluster-crd.yaml"
+}
