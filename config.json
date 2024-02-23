@@ -14,7 +14,8 @@
 	},
         {
             "apply": {
-                "file": "data/kubeblocks/helm-template-no-test-connection-no-addons.yaml",
+                "file": "data/kubeblocks/helm-template-df-extras-fixnull.yaml",
+		"namespace": null,
 		"operator": true
             }
         }

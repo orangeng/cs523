@@ -3669,10 +3669,1717 @@ spec:
     chartLocationURL: file:///apecloud-mysql-0.8.0-beta.5.tgz
     chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
     chartsPathInImage: /charts
+    
   defaultInstallValues:
   - enabled: true
   installable:
     autoInstall: true
+---
+# Source: kubeblocks/templates/addons/clickhouse-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: clickhouse
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.1
+    addon.kubeblocks.io/name: clickhouse
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'ClickHouse is an open-source column-oriented OLAP database management system. Use it to boost your database performance while providing linear scalability and hardware efficiency.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///clickhouse-0.7.1.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/elasticsearch-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: elasticsearch
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: elasticsearch
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: search-engine
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Elasticsearch is a distributed search and analytics engine. It is used for web search, log monitoring, and real-time analytics. Ideal for Big Data applications.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///elasticsearch-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/foxlake-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: foxlake
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: foxlake
+    addon.kubeblocks.io/provider: apecloud
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'ApeCloud FoxLake is an open-source cloud-native data warehouse.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///foxlake-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/kafka-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: kafka
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.8.0-alpha.5
+    addon.kubeblocks.io/name: kafka
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: streaming
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Apache Kafka is a distributed streaming platform designed to build real-time pipelines and can be used as a message broker or as a replacement for a log aggregation solution for big data applications.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///kafka-0.8.0-alpha.5.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/llm-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: llm
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: llm
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: LLM
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Large Language Models.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///llm-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/milvus-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: milvus
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 2.3.2
+    addon.kubeblocks.io/name: milvus
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: vector
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Milvus is an open source (Apache-2.0 licensed) vector database built to power embedding similarity search and AI applications.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///milvus-2.3.2.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/mongodb-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: mongodb
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: mongodb
+    addon.kubeblocks.io/provider: apecloud
+    addon.kubeblocks.io/model: document
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'MongoDB is a document database designed for ease of application development and scaling.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///mongodb-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/mysql-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: mysql
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: mysql
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'MySQL is a widely used, open-source relational database management system (RDBMS).'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///mysql-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/oceanbase-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: oceanbase
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.8.1
+    addon.kubeblocks.io/name: oceanbase
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.8.0'
+spec:
+  description: 'OceanBase Database is an enterprise-level native distributed database independently developed by Ant Group.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///oceanbase-0.8.1.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/opensearch-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: opensearch
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: opensearch
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: search-engine
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'OpenSearch is a scalable, flexible, and extensible open-source software suite for search, analytics, and observability applications licensed under Apache 2.0.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///opensearch-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/polardbx-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: polardbx
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: polardbx
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'PolarDB-X is a cloud native distributed SQL Database designed for high concurrency, massive storage, complex querying scenarios.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///polardbx-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/postgresql-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: postgresql
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.8.0
+    addon.kubeblocks.io/name: postgresql
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: RDBMS
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'PostgreSQL (Postgres) is an open source object-relational database known for reliability and data integrity. ACID-compliant, it supports foreign keys, joins, views, triggers and stored procedures.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///postgresql-0.8.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/pulsar-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: pulsar
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: pulsar
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: streaming
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Apache® Pulsar™ is an open-source, distributed messaging and streaming platform built for the cloud.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///pulsar-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/qdrant-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: qdrant
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.7.0
+    addon.kubeblocks.io/name: qdrant
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: vector
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Qdrant is an open source (Apache-2.0 licensed), vector similarity search engine and vector database.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///qdrant-0.7.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/redis-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: redis
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.8.1
+    addon.kubeblocks.io/name: redis
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: key-value
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.8.0'
+spec:
+  description: 'Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///redis-0.8.1.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: true
+---
+# Source: kubeblocks/templates/addons/weaviate-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: weaviate
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.8.0
+    addon.kubeblocks.io/name: weaviate
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: vector
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Weaviate is an open-source (BSD-3.0 licensed)  vector database. It allows you to store data objects and vector embeddings from your favorite ML-models, and scale seamlessly into billions of data objects.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///weaviate-0.8.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/addons/xinference-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: xinference
+  labels:
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    addon.kubeblocks.io/version: 0.1.0
+    addon.kubeblocks.io/name: xinference
+    addon.kubeblocks.io/provider: community
+    addon.kubeblocks.io/model: LLM
+  annotations:
+    addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+spec:
+  description: 'Xorbits Inference(Xinference) is a powerful and versatile library designed to serve language, speech recognition, and multimodal models.'
+  type: Helm
+  helm:    
+    chartLocationURL: file:///xinference-0.1.0.tgz
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+  defaultInstallValues:
+  - enabled: true
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/alertmanager-webhook-adaptor-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: alertmanager-webhook-adaptor
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "0.1.4"
+spec:
+  description: 'alertmanager webhook adaptor for extending alertmanager notification channels'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///alertmanager-webhook-adaptor-0.1.4.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: alertmanager-webhook-adaptor-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - replicas: 1
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/apecloud-otel-collector-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: apecloud-otel-collector
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "0.1.2-beta.3"
+spec:
+  description: apecloud-otel-collector is a high-performance data collection agent with luxuriant function, which inspired by OpenTelemetry.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///apecloud-otel-collector-0.1.2-beta.3.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: apecloud-otel-collector-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"},{\"effect\":\"NoSchedule\",\"key\":\"kb-data\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/aws-loadbalancer-controller-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: aws-load-balancer-controller
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "1.4.8"
+spec:
+  description: The AWS Load Balancer Controller manages AWS Elastic Load Balancers for a Kubernetes cluster.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///aws-load-balancer-controller-1.4.8.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+      - name: aws-load-balancer-controller-chart-kubeblocks-values
+        key: values-kubeblocks-override.yaml
+
+      setValues:
+      - clusterName=
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+  - replicas: 1
+    tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+    selectors:
+    - key: KubeGitVersion
+      operator: Contains
+      values:
+      - eks
+---
+# Source: kubeblocks/templates/applications/bytebase-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: bytebase
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.7.0"
+spec:
+  description: 'Bytebase is Database DevOps and CI/CD for Developer, DBA and Platform Engineering team.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///bytebase-0.7.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+    
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+  - enabled: true
+---
+# Source: kubeblocks/templates/applications/chaos-mesh-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: fault-chaos-mesh
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "2.5.2"
+spec:
+  description: 'Chaos Mesh is an open-source chaos engineering tool that facilitates testing the resiliency and reliability of distributed systems by introducing various failure scenarios in a controlled manner.'
+
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///chaos-mesh-2.5.2.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      setValues:
+        - "version=2.5.2"
+        - "chaosDaemon.privileged=true"
+        - "dnsServer.create=true"
+        - "chaosDaemon.runtime=containerd"
+        - "chaosDaemon.socketPath=/run/containerd/containerd.sock"
+        - "images.registry=infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com"
+        - "controllerManager.image.repository=apecloud/chaos-mesh"
+        - "chaosDaemon.image.repository=apecloud/chaos-daemon"
+        - "dashboard.image.repository=apecloud/chaos-dashboard"
+
+    valuesMapping:
+      valueMap:
+        replicaCount: controllerManager.replicaCount
+      jsonMap:
+        tolerations: controllerManager.tolerations
+      resources:
+        cpu:
+          requests: controllerManager.resources.requests.cpu
+        memory:
+          requests: controllerManager.resources.requests.memory
+
+      extras:
+        - name: chaosDaemon
+          jsonMap:
+            tolerations: chaosDaemon.tolerations
+
+        - name: dashboard
+          valueMap:
+            replicaCount: dashboard.replicaCount
+          jsonMap:
+            tolerations: dashboard.tolerations
+          resources:
+            cpu:
+              requests: dashboard.resources.requests.cpu
+            memory:
+              requests: dashboard.resources.requests.memory
+
+        - name: dnsServer
+          jsonMap:
+            tolerations: dnsServer.tolerations
+          resources:
+            cpu:
+              requests: dnsServer.resources.requests.cpu
+            memory:
+              requests: dnsServer.resources.requests.memory
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: false
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+      extras:
+        - name: chaosDaemon
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+        - name: dashboard
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+        - name: dnsServer
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+---
+# Source: kubeblocks/templates/applications/csi-driver-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: kubeblocks-csi-driver
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.1.4"
+spec:
+  description: 'KubeBlocks CSI driver provides a container storage interface used by Container Orchestrators
+    to manage the lifecycle of block storage for cloud vendors.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///kubeblocks-csi-driver-0.1.4.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+      valueMap:
+        replicaCount: controller.replicaCount
+      jsonMap:
+        tolerations: controller.tolerations
+
+      resources:
+        cpu:
+          requests: controller.resources.requests.cpu
+          limits: controller.resources.limits.cpu
+        memory:
+          requests: controller.resources.requests.memory
+          limits: controller.resources.limits.memory
+      extras:
+        - name: node
+          jsonMap:
+            tolerations: node.tolerations
+
+          resources:
+            cpu:
+              requests: node.resources.requests.cpu
+              limits: node.resources.limits.cpu
+            memory:
+              requests: node.resources.requests.memory
+              limits: node.resources.limits.memory
+
+  defaultInstallValues:
+    - enabled: false
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+      extras:
+        - name: node
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+
+  installable:
+    autoInstall: false
+    selectors:
+      - key: KubeGitVersion
+        operator: Contains
+        values:
+          - eks
+---
+# Source: kubeblocks/templates/applications/csi-driver-nfs-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: csi-driver-nfs
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "4.5.0"
+spec:
+  description: Container Storage Interface (CSI) driver for NFS based volumes
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///csi-driver-nfs-4.5.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    valuesMapping:
+      valueMap:
+        replicaCount: controller.replicas
+      jsonMap:
+        tolerations: controller.tolerations
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/csi-hostpath-driver-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: csi-hostpath-driver
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.7.0"
+spec:
+  description: Container Storage Interface (CSI) driver for HostPath volumes
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///csi-hostpath-driver-0.7.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: csi-hostpath-driver-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      jsonMap:
+        tolerations: tolerations
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+    selectors:
+      - key: KubeGitVersion
+        operator: DoesNotContain
+        values:
+          - eks
+          - aliyun.
+          - gke
+          - tke
+          - aks
+---
+# Source: kubeblocks/templates/applications/csi-s3-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: csi-s3
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.7.0"
+spec:
+  description: Container Storage Interface (CSI) driver for S3 volumes
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///csi-s3-0.7.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      secretRefs:
+        - name: kubeblocks-cloud-provider
+          key: csi-s3
+
+    valuesMapping:
+      jsonMap:
+        tolerations: tolerations
+      extras:
+      - name: daemonset
+        jsonMap:
+          tolerations: daemonsetTolerations
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/external-dns-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: external-dns
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "6.20.4"
+spec:
+  description: >-
+    ExternalDNS synchronizes exposed Kubernetes Services and Ingresses with DNS providers.
+
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///external-dns-6.20.4.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+      - name: external-dns-chart-kubeblocks-values
+        key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+  - replicas: 1
+    tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/grafana-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: grafana
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "6.43.5"
+spec:
+  description: The leading tool for querying and visualizing time series and metrics.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///grafana-6.43.5.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: grafana-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicas
+        storageClass: persistence.storageClassName
+        persistentVolumeEnabled: persistence.enabled
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        storage: persistence.size
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - replicas: 1
+      resources:
+        requests:
+          storage: 1Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - aliyun
+      replicas: 1
+      resources:
+        requests:
+          storage: 20Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/jupyter-notebook-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: jupyter-notebook
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.7.0"
+spec:
+  description: 'Jupyter Notebook: Interactive coding, documentation, and visualization tool with multi-language support for data analysis and education.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///jupyter-notebook-0.7.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: true
+---
+# Source: kubeblocks/templates/applications/jupyterhub-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: jupyter-hub
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.1.0"
+spec:
+  description: 'JupyterHub is a multi-user platform for hosting Jupyter Notebooks.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///jupyterhub-0.1.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: true
+---
+# Source: kubeblocks/templates/applications/kubebench-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: kubebench
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "0.0.1"
+spec:
+  description: 'A Kubernetes operator for running benchmark tests on databases to evaluate their performance.'
+
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///kubebench-0.0.1.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+---
+# Source: kubeblocks/templates/applications/loki-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: loki
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "5.8.9"
+spec:
+  description: Grafana Loki is a horizontally scalable, highly available, and multi-tenant log aggregation system, which inspired by Prometheus.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///loki-5.8.9.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: loki-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: singleBinary.replicas
+        storageClass: singleBinary.persistence.storageClass
+        persistentVolumeEnabled: singleBinary.persistence.enabled
+
+      jsonMap:
+        tolerations: global.tolerations
+
+      resources:
+        storage: singleBinary.persistence.size
+
+  defaultInstallValues:
+    - replicas: 1
+      resources:
+        requests:
+          storage: 8Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+    # for ACK, the smallest storage size is 20Gi, the format of GitVersion is v1.24.6-aliyun.1
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - aliyun
+      replicas: 1
+      resources:
+        requests:
+          storage: 20Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+    # for TKE, the smallest storage size is 10Gi, the format of GitVersion is v1.24.4-tke.5
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - tke
+      replicas: 1
+      resources:
+        requests:
+          storage: 10Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/migration-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: migration
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "0.1.1"
+spec:
+  description: 'Migration is a tool for migrating data between two databases.'
+
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///dt-platform-0.1.1.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+---
+# Source: kubeblocks/templates/applications/minio.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: minio
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "12.8.12"
+spec:
+  description: 'MinIO(R) is an object storage server, compatible with Amazon S3 cloud storage service, mainly used for storing unstructured data (such as photos, videos, log files, etc.).'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///minio-12.8.12.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      setValues:
+        - auth.rootUser=kubeblocks
+        - auth.rootPassword=kubeblocks
+        - extraEnvVars[0].name=MINIO_BROWSER_LOGIN_ANIMATION
+        - extraEnvVars[0].value=off
+  installable:
+    autoInstall: false
+
+  defaultInstallValues:
+    - enabled: true
+---
+# Source: kubeblocks/templates/applications/nvidia-gpu-exporter-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: nvidia-gpu-exporter
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.3.1"
+spec:
+  description: 'Nvidia GPU exporter for prometheus using nvidia-smi binary'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///nvidia-gpu-exporter-0.3.1.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+  installable:
+    autoInstall: false
+    selectors:
+    - key: KubeGitVersion
+      operator: Contains
+      values:
+      - eks
+
+  defaultInstallValues:
+  - enabled: true
+---
+# Source: kubeblocks/templates/applications/nyancat-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: nyancat
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": apecloud
+    "addon.kubeblocks.io/version": "0.7.0"
+spec:
+  description: 'Deploys a nyancat application in a cluster.
+  Nyancat is a demo application for showing database cluster availability.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///nyancat-0.7.0.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - replicas: 1
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/prometheus-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: prometheus
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "15.16.1"
+spec:
+  description: Prometheus is a monitoring system and time series database.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///prometheus-15.16.1.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: prometheus-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: server.replicaCount
+        storageClass: server.persistentVolume.storageClass
+        persistentVolumeEnabled: server.persistentVolume.enabled
+
+      jsonMap:
+        tolerations: server.tolerations
+
+      resources:
+        storage: server.persistentVolume.size
+        cpu:
+          requests: server.resources.requests.cpu
+          limits: server.resources.limits.cpu
+        memory:
+          requests: server.resources.requests.memory
+          limits: server.resources.limits.memory
+      extras:
+        - name: alertmanager
+          valueMap:
+            replicaCount: alertmanager.replicaCount
+            storageClass: alertmanager.persistentVolume.storageClass
+            persistentVolumeEnabled: alertmanager.persistentVolume.enabled
+
+          jsonMap:
+            tolerations: alertmanager.tolerations
+
+          resources:
+            storage: alertmanager.persistentVolume.size
+            cpu:
+              requests: alertmanager.resources.requests.cpu
+              limits: alertmanager.resources.limits.cpu
+            memory:
+              requests: alertmanager.resources.requests.memory
+              limits: alertmanager.resources.limits.memory
+
+  defaultInstallValues:
+    - replicas: 1
+      resources:
+        requests:
+          storage: 20Gi
+          memory: 512Mi
+        limits:
+          memory: 4Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+      extras:
+        - name: alertmanager
+          replicas: 1
+          resources:
+            requests:
+              storage: 4Gi
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    # for ACK, the smallest storage size is 20Gi, the format of GitVersion is v1.24.6-aliyun.1
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - aliyun
+      replicas: 1
+      resources:
+        requests:
+          storage: 20Gi
+          memory: 512Mi
+        limits:
+          memory: 4Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+      extras:
+        - name: alertmanager
+          replicas: 1
+          resources:
+            requests:
+              storage: 20Gi
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    # for TKE, the smallest storage size is 10Gi, the format of GitVersion is v1.24.4-tke.5
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - tke
+      replicas: 1
+      resources:
+        requests:
+          storage: 20Gi
+          memory: 512Mi
+        limits:
+          memory: 4Gi
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+      extras:
+        - name: alertmanager
+          replicas: 1
+          resources:
+            requests:
+              storage: 10Gi
+          tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/pyroscope-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: pyroscope-server
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.2.92"
+spec:
+  description: Open Source Continuous Profiling Server.
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///pyroscope-0.2.92.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
+---
+# Source: kubeblocks/templates/applications/snapshot-controller-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: snapshot-controller
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "1.7.2"
+spec:
+  description: 'Deploys a Snapshot Controller in a cluster. Snapshot Controllers are
+    often bundled with the Kubernetes distribution, this chart is meant for cases where
+    it is not. '
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///snapshot-controller-1.7.2.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    installValues:
+      configMapRefs:
+        - name: snapshot-controller-chart-kubeblocks-values
+          key: values-kubeblocks-override.yaml
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+        storageClass: volumeSnapshotClasses[0].driver
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+
+  defaultInstallValues:
+    - enabled: true
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - eks
+      storageClass: ebs.csi.aws.com
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - gke
+      storageClass: pd.csi.storage.gke.io
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+    - selectors:
+        - key: KubeGitVersion
+          operator: Contains
+          values:
+            - aks
+      storageClass: disk.csi.azure.com
+      tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall:  true
+    selectors:
+      - key: KubeGitVersion
+        operator: DoesNotContain
+        values:
+          - tke
+          - aliyun.
+      - key: KubeProvider
+        operator: DoesNotContain
+        values:
+          - huaweiCloud
+          - azure
+---
+# Source: kubeblocks/templates/applications/vmagent-addon.yaml
+apiVersion: extensions.kubeblocks.io/v1alpha1
+kind: Addon
+metadata:
+  name: victoria-metrics-agent
+  labels:
+    helm.sh/chart: kubeblocks-0.8.1
+    app.kubernetes.io/name: kubeblocks
+    app.kubernetes.io/instance: kubeblocks
+    app.kubernetes.io/version: "0.8.1"
+    app.kubernetes.io/managed-by: Helm
+    "addon.kubeblocks.io/provider": community
+    "addon.kubeblocks.io/version": "0.8.41"
+spec:
+  description: 'vmagent is a tiny agent which helps you collect metrics from various sources, relabel and filter the collected metrics and store them in VictoriaMetrics or any other storage systems via Prometheus remote_write protocol.'
+  type: Helm
+
+  helm:    
+    chartLocationURL: file:///victoria-metrics-agent-0.8.41.tgz    
+    chartsImage: infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-charts:0.8.1
+    chartsPathInImage: /charts
+
+    
+
+    valuesMapping:
+      valueMap:
+        replicaCount: replicaCount
+
+      jsonMap:
+        tolerations: tolerations
+
+      resources:
+        cpu:
+          requests: resources.requests.cpu
+          limits: resources.limits.cpu
+        memory:
+          requests: resources.requests.memory
+          limits: resources.limits.memory
+  
+  defaultInstallValues:
+  - replicas: 1
+    tolerations: "[{\"effect\":\"NoSchedule\",\"key\":\"kb-controller\",\"operator\":\"Equal\",\"value\":\"true\"}]"
+
+  installable:
+    autoInstall: false
 ---
 # Source: kubeblocks/templates/class/componentclassconstraint.yaml
 apiVersion: apps.kubeblocks.io/v1alpha1
@@ -4423,59 +6130,3 @@ spec:
     credentialFields:
       - accessKeyId
       - secretAccessKey
----
-# Source: kubeblocks/templates/pre-delete-addon-job.yaml
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: kubeblocks-addon-removal
-  labels:
-    helm.sh/chart: kubeblocks-0.8.1
-    app.kubernetes.io/name: kubeblocks
-    app.kubernetes.io/instance: kubeblocks
-    app.kubernetes.io/version: "0.8.1"
-    app.kubernetes.io/managed-by: Helm
-  annotations:
-    "helm.sh/hook": pre-delete
-    "helm.sh/hook-delete-policy": hook-succeeded
-spec:
-  ttlSecondsAfterFinished: 0
-  template:
-    metadata:
-      name: kubeblocks-addon-removal
-      labels:
-        helm.sh/chart: kubeblocks-0.8.1
-        app.kubernetes.io/name: kubeblocks
-        app.kubernetes.io/instance: kubeblocks
-        app.kubernetes.io/version: "0.8.1"
-        app.kubernetes.io/managed-by: Helm
-    spec:
-      serviceAccountName: kubeblocks
-      securityContext:
-        runAsNonRoot: true
-      restartPolicy: OnFailure
-      containers:
-        - name: post-install-job
-          image: "infracreate-registry.cn-zhangjiakou.cr.aliyuncs.com/apecloud/kubeblocks-tools:0.8.1"
-          imagePullPolicy: IfNotPresent
-          command:
-            - kubectl
-          args:
-            - delete
-            - addons.extensions.kubeblocks.io
-            - --selector=app.kubernetes.io/managed-by=Helm,app.kubernetes.io/instance=kubeblocks
-      affinity:
-        nodeAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - preference:
-              matchExpressions:
-              - key: kb-controller
-                operator: In
-                values:
-                - "true"
-            weight: 100
-      tolerations:
-        - effect: NoSchedule
-          key: kb-controller
-          operator: Equal
-          value: "true"
